@@ -25,8 +25,6 @@ An AI-based Book Recommendation System built using AWS SageMaker, Flask, and Pan
    cd Book-Recommendation-System
 Install Dependencies: Install the required Python packages with:
 
-bash
-Copy code
 pip install -r requirements.txt
 
 2. Install Dependencies: Install the required Python packages with:
@@ -36,11 +34,12 @@ pip install -r requirements.txt
 Ensure your dataset is uploaded to Amazon S3 in the appropriate bucket. Your dataset file should be accessible at s3://book-recommendation-system-dataset/books.csv.
 
 4.Set Up Environment Variables (if necessary): Configure any AWS access keys and S3 bucket details as environment variables or directly in your code if not managed by IAM roles.
+
 Usage
 To start the application, run the following command:
 
 python app.py
-The app should start locally on http://127.0.0.1:5000. Open a browser and go to this address to use the Book Recommendation System.
+The app should start locally on your computer. Open a browser and go to this address to use the Book Recommendation System.
 
 File Structure
 app.py: The main Flask application file that runs the recommendation system.
@@ -51,7 +50,7 @@ Deployment
 You can deploy this application on AWS services such as Elastic Beanstalk or Lambda. For local testing, ensure that all dependencies are installed and configurations are set.
 
 Example Usage
-Select Filters: Choose filters like author, minimum rating, or num_pages.
+Select Filters: Choose filters like author, minimum rating, or num_pages,title.
 View Recommendations: The system will display book recommendations based on your selected filters.
 License
 This project is licensed under the MIT License. Feel free to use and modify it as per the license terms.

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendation System</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Book Recommendation System</h1>
+    <label for="filter-type">Filter Type:</label>
+    <select id="filter-type">
+        <option value="Author">Author</option>
+        <option value="Minimum Rating">Minimum Rating</option>
+        <option value="Number of Pages">Number of Pages</option>
+        <option value="Title">Title</option>
+    </select>
+
+    <input type="text" id="filter-value" placeholder="Enter value..." />
+
+    <button id="get-recommendations">Get Recommendations</button>
+
+    <div id="output"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#get-recommendations').click(function() {
+                var filterType = $('#filter-type').val();
+                var filterValue = $('#filter-value').val();
+
+                $.ajax({
+                    url: '/recommend',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ filter_type: filterType, filter_value: filterValue }),
+                    success: function(response) {
+                        $('#output').empty();
+                        if (response.error) {
+                            $('#output').text(response.error);
+                        } else {
+                            response.forEach(function(book) {
+                                $('#output').append('<p>' + book.title + ' by ' + book.authors + ' - Rating: ' + book.average_rating + '</p>');
+                            });
+                        }
+                    },
+                    error: function() {
+                        $('#output').text('Error getting recommendations.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

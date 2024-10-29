@@ -21,7 +21,7 @@ An AI-based Book Recommendation System built using AWS SageMaker, Flask, and Pan
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/Book-Recommendation-System.git
+   git clone https://github.com/surendrareddy99/Book-Recommendation-System.git
    cd Book-Recommendation-System
 Install Dependencies: Install the required Python packages with:
 
